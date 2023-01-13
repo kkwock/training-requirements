@@ -1,0 +1,18 @@
+---
+title: "RNA-Seq Analysis"
+author: "Kristina Kwock"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Requirements
+
+To complete this task, you should perform the DGE analysis using [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) and generate these tables and figures in an RMarkdown file (`.Rmd`):
+
+1.  PCA summarizing the sample-level variance within the data set.
+2.  MA Plot showing the relationship between mean count and log2 fold change.
+3.  Table listing the differentially-expressed genes (DEGs)
+4.  Volcano plot showing all DGE results.
+5.  Heatmap showing the top 10 over- and under-expressed DEGs.
+6.  Enrichment analysis showing the top over- and under-expressed KEGG pathways.
+    -   Create a figure & a table to summarize the results
