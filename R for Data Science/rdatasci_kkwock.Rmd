@@ -21,6 +21,7 @@ Complete the following analysis in `R` and generate an `RMarkdown` report to sho
 
     # transform w/ tibble, minus X index col
     gap.data <- tibble(gap.data[,-1]) 
+    gap.data
     ```
 
 2.  Filter the data to include only rows where `Year` is `1962` and then make a scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap` for the filtered data.
@@ -61,7 +62,15 @@ Complete the following analysis in `R` and generate an `RMarkdown` report to sho
 
 4.  On the unfiltered data, answer "In what year is the correlation between `'CO2 emissions (metric tons per capita)'` and `gdpPercap` the strongest?" Filter the dataset to that year for the next step...
 
+    ```{r}
+
+    ```
+
 5.  Using `plotly`, create an interactive scatter plot comparing `'CO2 emissions (metric tons per capita)'` and `gdpPercap`, where the point size is determined by `pop` (population) and the color is determined by the `continent`. You can easily convert any `ggplot` plot to a `plotly` plot using the `ggplotly()` command.
+
+    ```{r}
+
+    ```
 
 Now, without further guidance, use your `R` Data Science skills (and appropriate statistical tests) to answer the following (*use the unfiltered dataset*):
 
@@ -69,3 +78,16 @@ Now, without further guidance, use your `R` Data Science skills (and appropriate
 2.  Is there a significant difference between Europe and Asia with respect to `'Imports of goods and services (% of GDP)'` in the years after 1990? (stats test needed)
 3.  What is the country (or countries) that has the highest `'Population density (people per sq. km of land area)'` across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)
 4.  What country (or countries) has shown the greatest increase in `'Life expectancy at birth, total (years)'` between 1962 and 2007?
+
+```{r}
+library(readxl)
+
+# Create a vector of Excel files to read
+files.to.read <- list.files(path = '', pattern='xlsx')
+
+# Read each file and write it to csv
+lapply(files.to.read, function(f) {
+  df = read_excel(f, sheet=1)
+  write.csv(df, gsub("xlsx", "csv", f), row.names=FALSE)
+})
+```
